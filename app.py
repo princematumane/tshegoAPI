@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+from flasgger import Swagger
 from pymongo import MongoClient
 import config
 import requests
 
 app = Flask(__name__)
+swagger = Swagger(app)
 CORS(app)
 app.config.from_object(config)
 
@@ -14,6 +16,28 @@ db = client['enrollment']
 collection = db['enrollment']
 users_collection = db["users"]
 courses = (app.config['COURSE_NAMES']).split(',')
+
+@app.route('/api/v1/hello', methods=['GET'])
+def hello_world():
+    """
+    A Hello World endpoint.
+    ---
+    tags:
+      - Example
+    parameters:
+      - name: name
+        in: query
+        type: string
+        required: false
+        description: The name to greet
+    responses:
+      200:
+        description: A greeting to the user
+        examples:
+          application/json: {"message": "Hello, World!"}
+    """
+    name = request.args.get('name', 'World')
+    return jsonify(message=f"Hello, {name}!")
 
 @app.route("/api/user", methods=["POST"])
 def register():
