@@ -1,0 +1,34 @@
+.welcome {
+  width: 70%;
+  height: 44px;
+  cursor: pointer;
+  margin-top: 10px;
+  font: bold;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: rgb(117, 109, 109);
+  border: none;
+  border-radius: 15px;
+
+}
+
+.welcome:hover {
+  background-color: #f8efef;
+}
+
+.text-description {
+  padding-bottom: 0;
+  font-size: small;
+  color: whitesmoke;
+  margin: 3;
+
+}
+
+.text-techAdvisor {
+  font-size: x-large;
+  font-weight: bold;
+  color: whitesmoke;
+  margin: 0;
+  padding-bottom: 0;
+
+}
