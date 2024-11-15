@@ -1,0 +1,4 @@
+1. install pip install flask
+2. install pip install flask-cors
+3. pip install requests
+then run python app.py  
